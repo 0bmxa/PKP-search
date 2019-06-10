@@ -6,47 +6,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" />
     <link rel="stylesheet" href="./style.css" />
+    <style>
+        #intercity-frame {
+            height: 2000px;
+            border: none
+        }
+    </style>
 </head>
 
 <body>
-    <div class="container">
-        <div class="row justify-content-md-center">
-            <form action="https://www.intercity.pl/en/site/for-passengers/information/journey-planner.html"
-                method="GET">
-                <div class="row">
-                    <h2 class="col-12">PKP Intercity Search</h2>
+    <div class="container-fluid">
+        <div class="row justify-content-center bg-light">
+            <div class="row mx-1 my-3">
+                <div class="col-6 col-sm-3">
+                    <select class="custom-select d-block w-100" id="start" name="stid[0]" placeholder="From" required>
+                        <!-- autopulated -->
+                    </select>
                 </div>
-                <div class="row">
-                    <div class="col-12 col-sm-6 mb-3">
-                        <label for="start">From</label>
-                        <select class="custom-select d-block w-100" id="start" name="stid[0]" required>
-                            <option value="8010255">Berlin Ost</option>
-                            <option value="5100067">Warszawa Zachodnia</option>
-                        </select>
-                    </div>
-                    <div class="col-12 col-sm-6 mb-3">
-                        <label for="end">To</label>
-                        <select class="custom-select d-block w-100" id="end" name="stid[1]" required>
-                            <option value="8010255">Berlin Ost</option>
-                            <option value="5100067">Warszawa Zachodnia</option>
-                        </select>
-                    </div>
+                <div class="col-6 col-sm-3">
+                    <select class="custom-select d-block w-100" id="end" name="stid[1]" placeholder="To" required>
+                        <!-- autopulated -->
+                    </select>
                 </div>
-                <div class="row">
-                    <div class="col-12 col-sm-6 mb-3">
-                        <input type="time" class="form-control" name="time" value="12:00" step="1800" />
-                    </div>
-                    <div class="col-12 col-sm-6 mb-3">
-                        <input type="date" class="form-control" name="date" />
-                    </div>
+                <div class="col-4 col-sm-2">
+                    <input type="date" class="form-control" id="date" name="date" placeholder="Date" required />
                 </div>
-                <div class="row">
-                    <div class="col-12 mb-3">
-                        <input type="hidden" name="search" value="1" />
-                        <button type="submit" class="col-12 btn btn-secondary">Search</button>
-                    </div>
+                <div class="col-4 col-sm-2">
+                    <input type="time" class="form-control" id="time" name="time" placeholder="Time" step="1800" required/>
                 </div>
-            </form>
+                <div class="col-4 col-sm-2">
+                    <button class="col-12 btn btn-secondary" id="search">Search</button>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <iframe class="w-100" id="intercity-frame" src="about:blank"></iframe>
         </div>
     </div>
 
